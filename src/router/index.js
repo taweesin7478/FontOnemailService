@@ -1,37 +1,29 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
+import { createRouter, createWebHistory } from 'vue-router'
+// import HomeView from '../views/HomeView.vue'
 import ChackService from '../components/ChackService'
 import EditService from '../components/EditService'
 
-Vue.use(VueRouter)
-// var timestamp = (new Date()).getTime()
-// var script = document.createElement('script')
-
 const routes = [
   {
-    path: '*',
-    name: 'wildcard',
-    redirect: '/'
-  },
-  {
     path: '/',
+    name: 'Service',
     component: ChackService
   },
+  // {
+  //   path: '/test',
+  //   name: 'test',
+  //   component: HomeView
+  // },
   {
-    path: '/ServiceOnemail',
-    component: ChackService
-  },
-  {
-    path: '/EditSOM',
+    path: '/EditS',
+    name: 'EditS',
     component: EditService
   }
 ]
 
-// document.head.appendChild(script)
-
-const router = new VueRouter({
+const router = createRouter({
+  history: createWebHistory(process.env.BASE_URL),
   routes
-  // mode: 'history'
 })
 
 export default router
